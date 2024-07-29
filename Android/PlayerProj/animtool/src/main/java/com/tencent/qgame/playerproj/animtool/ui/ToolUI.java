@@ -53,7 +53,7 @@ public class ToolUI {
     private final ButtonGroup group = new ButtonGroup();
     private final JRadioButton btnH264 = new JRadioButton("h264");
     private final JRadioButton btnH265 = new JRadioButton("h265");
-    private final SpinnerModel modelFps = new SpinnerNumberModel(24, 1, 60, 1);
+    private final SpinnerModel modelFps = new SpinnerNumberModel(24, 1, 120, 1);
     private final Float[] scaleArray = new Float[]{0.5f, 1f};
     private final JComboBox<Float> boxScale = new JComboBox<>(scaleArray);
     private final JTextField textInputPath = new JTextField();

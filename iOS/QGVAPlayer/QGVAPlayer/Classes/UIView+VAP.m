@@ -36,7 +36,7 @@
 
 NSInteger const kQGHWDMP4DefaultFPS = 20;
 NSInteger const kQGHWDMP4MinFPS = 1;
-NSInteger const QGHWDMP4MaxFPS = 60;
+NSInteger const QGHWDMP4MaxFPS = 120;
 NSInteger const VapMaxCompatibleVersion = 2;
 
 @interface UIView () <QGAnimatedImageDecoderDelegate,QGHWDMP4OpenGLViewDelegate, QGHWDMetelViewDelegate, QGVAPMetalViewDelegate, QGVAPConfigDelegate>
