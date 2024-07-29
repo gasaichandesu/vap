@@ -32,7 +32,8 @@
     static BOOL isSimulator = NO;
     dispatch_once(&token, ^{
         NSString *model = [self machineName];
-        if ([model isEqualToString:@"x86_64"] || [model isEqualToString:@"i386"]) {
+        VAP_Debug(kQGVAPModuleCommon, @"%@", model);
+        if ([model isEqualToString:@"x86_64"] || [model isEqualToString:@"i386"] || [model isEqualToString:@"arm64"]) {
             isSimulator = YES;
         }
     });
