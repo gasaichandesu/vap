@@ -441,17 +441,21 @@ NSString *const QGMP4HWDErrorDomain = @"QGMP4HWDErrorDomain";
     }
     
     // 3. create VTDecompressionSession
+    VAP_Info(kQGVAPModuleCommon, @"create VTDecompressionSession");
     return [self createDecompressionSession];;
 }
 
 - (BOOL)createDecompressionSession {
     CFDictionaryRef attrs = NULL;
-    const void *keys[] = {kCVPixelBufferPixelFormatTypeKey};
+    const void *keys[] = {kCVPixelBufferPixelFormatTypeKey, kCVPixelBufferMetalCompatibilityKey, kCVPixelBufferOpenGLESCompatibilityKey};
     //      kCVPixelFormatType_420YpCbCr8Planar is YUV420
     //      kCVPixelFormatType_420YpCbCr8BiPlanarFullRange is NV12
-    uint32_t v = kCVPixelFormatType_420YpCbCr8BiPlanarFullRange;
-    const void *values[] = { CFNumberCreate(NULL, kCFNumberSInt32Type, &v) };
-    attrs = CFDictionaryCreate(NULL, keys, values, 1, NULL, NULL);
+    uint32_t vPixelFormat = kCVPixelFormatType_420YpCbCr8Planar;
+    uint32_t vMetalFormat = kCVPixelFormatType_420YpCbCr8Planar;
+    uint32_t vGLESFormat = kCVPixelFormatType_420YpCbCr8Planar;
+    
+    const void *values[] = { CFNumberCreate(NULL, kCFNumberSInt32Type, &vPixelFormat), CFNumberCreate(NULL, kCFNumberSInt32Type, &vMetalFormat), CFNumberCreate(NULL, kCFNumberSInt32Type, &vGLESFormat) };
+    attrs = CFDictionaryCreate(NULL, keys, values, 3, NULL, NULL);
     
     if ([UIDevice currentDevice].systemVersion.floatValue >= 9.0) {
         _status = VTDecompressionSessionCreate(kCFAllocatorDefault,
