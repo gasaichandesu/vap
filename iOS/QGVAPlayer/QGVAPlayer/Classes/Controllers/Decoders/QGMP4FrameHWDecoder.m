@@ -450,9 +450,9 @@ NSString *const QGMP4HWDErrorDomain = @"QGMP4HWDErrorDomain";
     const void *keys[] = {kCVPixelBufferPixelFormatTypeKey, kCVPixelBufferMetalCompatibilityKey, kCVPixelBufferOpenGLESCompatibilityKey};
     //      kCVPixelFormatType_420YpCbCr8Planar is YUV420
     //      kCVPixelFormatType_420YpCbCr8BiPlanarFullRange is NV12
-    uint32_t vPixelFormat = kCVPixelFormatType_420YpCbCr8Planar;
-    uint32_t vMetalFormat = kCVPixelFormatType_420YpCbCr8Planar;
-    uint32_t vGLESFormat = kCVPixelFormatType_420YpCbCr8Planar;
+    uint32_t vPixelFormat = kCVPixelFormatType_420YpCbCr8BiPlanarFullRange;
+    uint32_t vMetalFormat = kCVPixelFormatType_420YpCbCr8BiPlanarFullRange;
+    uint32_t vGLESFormat = kCVPixelFormatType_420YpCbCr8BiPlanarFullRange;
     
     const void *values[] = { CFNumberCreate(NULL, kCFNumberSInt32Type, &vPixelFormat), CFNumberCreate(NULL, kCFNumberSInt32Type, &vMetalFormat), CFNumberCreate(NULL, kCFNumberSInt32Type, &vGLESFormat) };
     attrs = CFDictionaryCreate(NULL, keys, values, 3, NULL, NULL);
