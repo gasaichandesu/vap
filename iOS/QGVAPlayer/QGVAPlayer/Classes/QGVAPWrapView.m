@@ -47,7 +47,8 @@
 // 因为播放停止后可能移除VAPView，这里需要加回来
 - (void)initVAPViewIfNeed {
     if (!_vapView) {
-        _vapView = [[VAPView alloc] initWithFrame:self.bounds];
+        _vapView = [[VAPView alloc] initWithFrame:self.bounds ];
+        [_vapView setHwd_enterBackgroundOP:HWDMP4EBOperationTypePauseAndResume];
         [self addSubview:_vapView];
     }
 }
